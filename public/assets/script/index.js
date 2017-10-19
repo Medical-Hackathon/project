@@ -1,3 +1,17 @@
+var list= [
+{
+	name: "Issue 1",
+	id: 1
+},
+{
+	name: "Issue 2",
+	id: 2
+},
+{
+	name: "Issue 3",
+	id: 3
+}];
+
 $("#submit").on("click", function(event)
 {
 
@@ -28,14 +42,16 @@ $("#submit").on("click", function(event)
 
 		if (prediction[0] === 0)
 		{
+			$('.alert').attr("class", "alert alert-success")
 			$('#complication_stat').html("No Complication Predicted <br>")
-			$('#complication_stat').append("Confidence: "+prediction[1]+"%")
+			$('#confidence').html("Confidence: "+prediction[1]+"%")
 		}
 
 		else
 		{
+			$('.alert').attr("class", "alert alert-danger")
 			$('#complication_stat').html("Complication Predicted <br>")
-			$('#complication_stat').append("Confidence: "+prediction[2]+"%")			
+			$('#confidence').html("Confidence: "+prediction[2]+"%")			
 		}
 	})
 })

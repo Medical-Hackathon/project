@@ -29,7 +29,7 @@ var predict = function(cb)
 {
 	data = []
 	data.push(0)
-	data.push(23)
+	data.push(56)
 	//Ceating fake data entry
 	for (var i=0; i<263; i++)
 	{
@@ -52,8 +52,6 @@ var predict = function(cb)
 	  console.log('Repeated Random Balanced Sub-Sampling Prediction: '+dataString);
 	  cb(dataString)
 	});
-
-	/*We have to stringify the data first otherwise our python process wont recognize it*/
 }
 
 app.listen(3000)

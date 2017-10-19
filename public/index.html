@@ -8,8 +8,38 @@
 </head>
 <body>
 	<div class="container">
-		<button type="button" class="btn btn-primary" id="submit">Submit</button>
-		<h1 id="complication_stat">Click Submit</h1>
+
+		<div class="row">
+			<div class="col-md-9">
+				<h1>Patient Information</h1>
+				<hr>
+		
+				<div class="form-group row">
+					<label for="inputPassword" class="col-sm-2 col-form-label"><h3>Age:</h3></label>
+					<div class="col-sm-10">
+						<input type="number" class="form-control" id="inputPassword" placeholder="Enter Age">
+					</div>
+				</div>
+
+				<div class="form-group row">
+					<label for="inputPassword" class="col-sm-2 col-form-label"><h3>Current Medical Complications:</h3></label>
+					<div class="col-sm-10">
+						<input type="number" class="form-control" id="inputPassword" placeholder="Enter Age">
+					</div>
+				</div>
+
+				<button type="button" class="btn btn-primary pull-right" id="submit">Submit</button>
+
+			</div>
+			<div class="col-md-3">
+				<h1>Result</h1>
+				<hr>
+				<div class="alert alert-warning text-center" role="alert">
+				<h4 class="alert-heading" id="complication_stat">Enter Patient Information</h4>
+					<div id="confidence"></div>
+				</div>
+			</div>
+		</div>
 
 
 		<div class="row" id="spinner-row">   
