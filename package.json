@@ -1,5 +1,5 @@
 {
-  "name": "python-node-example",
+  "name": "project",
   "version": "1.0.0",
   "description": "",
   "main": "server.js",
@@ -7,12 +7,12 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server.js"
   },
-  "author": "",
-  "license": "ISC",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Medical-Hackathon/project.git"
   },
+  "author": "",
+  "license": "ISC",
   "bugs": {
     "url": "https://github.com/Medical-Hackathon/project/issues"
   },
