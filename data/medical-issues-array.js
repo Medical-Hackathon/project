@@ -1,4 +1,4 @@
-var = [
+var list= [
 {
 	name: "Issue 1",
 	id: 1
@@ -10,4 +10,4 @@ var = [
 {
 	name: "Issue 3",
 	id: 3
-}]
+}];
