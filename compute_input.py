@@ -5,6 +5,7 @@ import pandas as pd
 import csv
 from sklearn.ensemble import RandomForestClassifier
 import pickle
+from decimal import Decimal
 
 #Read data from stdin
 def read_in():
@@ -21,6 +22,8 @@ def predict(data):
 
     RF_loop_results = []
     probs = []
+    probs_complications = []
+    probs_no_complications = []
     for i in range(len(clf)):
         features = testing_point.columns[1:262]
 
@@ -30,11 +33,17 @@ def predict(data):
     results = []
     for i in range(len(RF_loop_results[0])):
         num = 0
+        total_prob_complcaition = 0
+        total_prob_no_complcaition = 0
 
         for j in range(len(RF_loop_results)):
             num = num + RF_loop_results[j][i]
+            total_prob_complcaition = total_prob_complcaition + probs[j][0][1]
+            total_prob_no_complcaition = total_prob_no_complcaition + probs[j][0][0]
 
         results.append(int(round(num/len(RF_loop_results))))
+        results.append(float(round(Decimal(total_prob_no_complcaition/len(RF_loop_results)*100),2)))
+        results.append(float(round(Decimal(total_prob_complcaition/len(RF_loop_results)*100),2)))
 
     return results
 

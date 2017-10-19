@@ -5,7 +5,7 @@ var app = express()
 
 data = []
 data.push(0)
-data.push(23)
+data.push(56)
 //Ceating fake data entry
 for (var i=0; i<263; i++)
 {
