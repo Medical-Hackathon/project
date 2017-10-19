@@ -8,5 +8,16 @@
     "start": "node server.js"
   },
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Medical-Hackathon/project.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Medical-Hackathon/project/issues"
+  },
+  "homepage": "https://github.com/Medical-Hackathon/project#readme",
+  "dependencies": {
+    "express": "^4.16.2"
+  }
 }

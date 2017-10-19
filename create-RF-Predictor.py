@@ -8,7 +8,7 @@ import pickle
 #complications_training: The training data with complications.
 #no_complications_training: The training data with no complications.
 #I'm just grabbing the first 500 data points to make sure the program works as we want, we'll take this away when we want to try it out will the whole set.
-sample = 500
+sample = 5000
 df = pd.read_csv('C:/Users/Luke/Desktop/hackthon data/NIS_2007_2014_converted.csv', nrows = sample)
 df = df.sample(frac=1)
 del df["RACE"]
@@ -86,7 +86,7 @@ for i in range(number_of_trails):
     RF_loop_results.append(clf.predict(testing[features]))
 
 #Finding the majority voting
-pickle.dump(RFS, open('test_save.sav', 'wb'))
+#pickle.dump(RFS, open('test_save.sav', 'wb'))
 results = []
 
 for i in range(len(RF_loop_results[0])):

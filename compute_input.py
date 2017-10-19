@@ -20,10 +20,12 @@ def predict(data):
     testing_point.loc[0] = data
 
     RF_loop_results = []
+    probs = []
     for i in range(len(clf)):
         features = testing_point.columns[1:262]
 
         RF_loop_results.append(clf[i].predict(testing_point[features]))
+        probs.append(clf[i].predict_proba(testing_point[features]))
 
     results = []
     for i in range(len(RF_loop_results[0])):
