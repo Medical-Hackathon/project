@@ -1,5 +1,8 @@
 $("#submit").on("click", function(event)
 {
+
+	$('.animationload').show()
+
 	var data = 
 	{
 		clicked: true
@@ -16,11 +19,23 @@ $("#submit").on("click", function(event)
 		var prediction = result.substr(1);
 		prediction = prediction.slice(0, prediction.length-1);
 		prediction = prediction.split(",");
-		var result = prediction.map(function (x) 
+		prediction = prediction.map(function (x) 
 		{ 
 		    return parseFloat(x, 10); 
 		});
-		console.log(result[1])
-		$('#complication_stat').html(result[0])
+
+		$('.animationload').hide()
+
+		if (prediction[0] === 0)
+		{
+			$('#complication_stat').html("No Complication Predicted <br>")
+			$('#complication_stat').append("Confidence: "+prediction[1]+"%")
+		}
+
+		else
+		{
+			$('#complication_stat').html("Complication Predicted <br>")
+			$('#complication_stat').append("Confidence: "+prediction[2]+"%")			
+		}
 	})
 })
