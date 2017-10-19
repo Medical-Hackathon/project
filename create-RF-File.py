@@ -63,6 +63,7 @@ nc = len(no_complications_training)
 number_of_trails = int(nc/c)
 
 RF_loop_results = []
+RFS = []
 #This loops through all training data of all complcaitions and a fraction of no_complcations such that there is 50/50 in each RF.
 #for i in range(number_of_trails):
 for i in range(number_of_trails):
@@ -80,43 +81,9 @@ for i in range(number_of_trails):
 
     clf = RandomForestClassifier(n_jobs=2, oob_score = True, random_state = 42, n_estimators = 250)
     clf.fit(X, y)
+    RFS.append(clf)
 
     RF_loop_results.append(clf.predict(testing[features]))
 
-#Finding the majority voting
-results = []
-
-for i in range(len(RF_loop_results[0])):
-    num = 0
-
-    for j in range(len(RF_loop_results)):
-        num = num + RF_loop_results[j][i]
-
-    results.append(int(round(num/len(RF_loop_results))))
-
-#The result of our multiple RFs
-print("What our method predeicts is true:")
-print(results)
-
-print("-----------------------------------------------------------------------------")
-#The actual answers
-print("What is actually true:")
-print(testing["Complications"].values)
-
-print("-----------------------------------------------------------------------------")
-
-number_complications_correctly_predicted = 0
-for i in range(number_complications_testing):
-    if results[i] == 1.0:
-        number_complications_correctly_predicted = number_complications_correctly_predicted + 1
-
-print("Percent of correct complication predictions:")
-print(number_complications_correctly_predicted/number_complications_testing)
-
-number_no_complications_correctly_predicted = 0
-for i in range(number_complications_testing, len(testing)):
-    if results[i] == 0.0:
-        number_no_complications_correctly_predicted = number_no_complications_correctly_predicted + 1
-
-print("Percent of correct no complication predictions:")
-print(number_no_complications_correctly_predicted/(len(testing)-number_complications_testing))
+#Exporting Random Forest Array
+pickle.dump(RFS, open('RF-array.sav', 'wb'))
