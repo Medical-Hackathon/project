@@ -1,15 +1,20 @@
-var express = require('express')
+var express = require('express');
 var bodyParser = require("body-parser");
 var spawn = require('child_process').spawn;
 var path = require("path");
-var app = express()
+var app = express();
+var medicalComplications = require("./medical_complications.js")
+
+medicalComplications(function(result)
+{
+	console.log(result)
+})
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.text());
 app.use(bodyParser.json({ type: "application/vnd.api+json" }));
 app.use(express.static(path.join(__dirname, "public")));
-
 
 app.get("/", function(req, res)
 {
@@ -29,7 +34,7 @@ var predict = function(cb)
 	var py = spawn('python', ['compute_input.py']);
 	data = []
 	data.push(0)
-	data.push(56)
+	data.push(23)
 	//Ceating fake data entry
 	for (var i=0; i<263; i++)
 	{
