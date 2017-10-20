@@ -2,7 +2,6 @@ var express = require('express')
 var bodyParser = require("body-parser");
 var spawn = require('child_process').spawn;
 var path = require("path");
-var py = spawn('python', ['compute_input.py']);
 var app = express()
 
 app.use(bodyParser.json());
@@ -27,6 +26,7 @@ app.post("/", function(req, res)
 
 var predict = function(cb)
 {
+	var py = spawn('python', ['compute_input.py']);
 	data = []
 	data.push(0)
 	data.push(56)
