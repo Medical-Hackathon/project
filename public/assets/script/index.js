@@ -38,7 +38,7 @@ $(document).on('click', '.condition', function(event)
 $(document).on("click", ".delete", function(event)
 {
 	var id = $(this).attr("id");
-	console.log(id)
+	console.log($(this).parent().parent().remove())
 
 	for (var i=0; i<currentConditions.length; i++)
 	{
