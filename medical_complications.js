@@ -2,7 +2,7 @@ var fs = require('fs');
 
 var getData = function(cb)
 {
-	fs.readFile("./data/test.csv", function(err, data)
+	fs.readFile("./data/complications_list.csv", function(err, data)
 	{
 		if(err){throw err};
 
