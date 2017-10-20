@@ -1,3 +1,61 @@
+var currentConditions = []
+
+for (var key in getData)
+{
+	$('#list-of-conditions').append('<tr><td class="condition condition-'+key+'">'+getData[key]+'</td></tr>')
+}
+
+$('#example').DataTable();
+
+$(document).on('click', '.condition', function(event)
+{
+	var id = $(this).attr("class").slice(20);
+	id = id.substring(0, id.length-10)
+	seen = false;
+
+	for (var i=0; i<currentConditions.length; i++)
+	{
+		if (id === currentConditions[i])
+		{
+			seen = true;
+			break;
+		}
+	}
+
+	if (seen)
+	{
+		alert("You have already selected this condition.");
+	}
+
+	else
+	{
+		currentConditions.push(id)
+		console.log(currentConditions)
+		$('#patient-conditions').append('<li class="list-group-item d-flex justify-content-between align-items-center">'+getData[id]+'<span><button type="button" class="btn btn-danger delete" id="'+id+'">Delete</button></span></li>')
+	}
+})
+
+$(document).on("click", ".delete", function(event)
+{
+	var id = $(this).attr("id");
+	console.log(id)
+
+	for (var i=0; i<currentConditions.length; i++)
+	{
+		if (id === currentConditions[i])
+		{
+			console.log("EQUAL! "+id+" and "+currentConditions[i])
+			currentConditions.splice(i, 1);
+			break;
+		}
+	}
+
+	console.log(currentConditions)
+
+	$('.conition-'+id).parent().remove();
+
+
+})
 
 
 $("#submit").on("click", function(event)

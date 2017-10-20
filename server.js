@@ -5,10 +5,7 @@ var path = require("path");
 var app = express();
 var medicalComplications = require("./medical_complications.js")
 
-medicalComplications(function(result)
-{
-	console.log(result)
-})
+console.log(medicalComplications)
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -34,7 +31,7 @@ var predict = function(cb)
 	var py = spawn('python', ['compute_input.py']);
 	data = []
 	data.push(0)
-	data.push(23)
+	data.push(30)
 	//Ceating fake data entry
 	for (var i=0; i<263; i++)
 	{

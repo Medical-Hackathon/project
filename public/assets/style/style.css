@@ -49,3 +49,8 @@
 {
   display: none;
 }
+
+td:hover
+{
+  background-color: #fff3cd;
+}
