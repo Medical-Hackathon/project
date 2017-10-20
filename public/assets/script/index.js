@@ -62,17 +62,16 @@ $("#submit").on("click", function(event)
 {
 
 	$('.animationload').show()
-
-	var data = 
+	var predictData = 
 	{
-		clicked: true
+		conditions: currentConditions
 	}
 
 	$.ajax(
 	{
 		url: "/",
 		type: "post",
-		data: data
+		data: predictData
 	}).done(function(result)
 	{
 		result = result.trim()

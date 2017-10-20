@@ -20,23 +20,16 @@ app.get("/", function(req, res)
 
 app.post("/", function(req, res)
 {
-	result = predict(function(result)
+	console.log(req)
+/*	result = predict(function(result)
 	{
 		res.send(result)
-	})
+	})*/
 })
 
 var predict = function(cb)
 {
 	var py = spawn('python', ['compute_input.py']);
-	data = []
-	data.push(0)
-	data.push(30)
-	//Ceating fake data entry
-	for (var i=0; i<263; i++)
-	{
-		data.push(0)
-	}
 
 	py.stdin.write(JSON.stringify(data));
 	py.stdin.end();
