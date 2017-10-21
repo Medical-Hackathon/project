@@ -63,7 +63,7 @@ $(document).on('click', '.diagnosis', function(event)
 	{
 		currentConditions.push(id)
 		console.log(currentConditions)
-		$('#diagnosis').append('<div class="hi" style="font-size:15px;">'+diagnosis[id]+'<span><button type="button" class="btn btn-danger delete pull-right" id="'+id+'">Delete</button></span></div>')
+		$('#diagnosis').append('<div class="hi" style="font-size:20px;">'+diagnosis[id]+'<span><button type="button" class="btn btn-danger delete pull-right" id="'+id+'">Delete</button></span></div>')
 	}
 })
 
@@ -91,7 +91,7 @@ $(document).on('click', '.PMH', function(event)
 	{
 		currentConditions.push(id)
 		console.log(currentConditions)
-		$('#PMH').append('<div class="hi" style="font-size:15px;">'+PMH[id]+'<span><button type="button" class="btn btn-danger delete pull-right" id="'+id+'">Delete</button></span></div>')
+		$('#PMH').append('<div class="hi" style="font-size:20px;">'+PMH[id]+'<span><button type="button" class="btn btn-danger delete pull-right" id="'+id+'">Delete</button></span></div>')
 	}
 })
 
