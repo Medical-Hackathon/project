@@ -20,15 +20,17 @@ app.post("/", function(req, res)
 {
 	var conditions = req.body.conditions
 	var otherinfo = req.body.otherData
-	console.log(conditions)
-	console.log(otherinfo)
-/*	result = predict(function(result)
+	var data = []
+	data.push(otherinfo)
+	data.push(conditions)
+
+	result = predict(data, function(result)
 	{
 		res.send(result)
-	})*/
+	})
 })
 
-var predict = function(conditions, otherinfo, cb)
+var predict = function(data, cb)
 {
 	var py = spawn('python', ['compute_input.py']);
 

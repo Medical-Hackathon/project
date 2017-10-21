@@ -5,7 +5,7 @@ from sklearn.ensemble import RandomForestClassifier
 import pickle
 from decimal import Decimal
 
-clf = pickle.load(open('RF-array.sav', 'rb'))
+clf = pickle.load(open('RF-array (2).sav', 'rb'))
 
 # sample = 1
 # df = pd.read_csv('C:/Users/Luke/Desktop/hackthon data/NIS_2007_2014_converted.csv', nrows = sample)
@@ -80,6 +80,5 @@ for i in range(len(RF_loop_results[0])):
 
 
 print("Predict:"+ str(results))
-print(testing_point['Complications'])
+
 print(probs)
-print(probs[3][0])
