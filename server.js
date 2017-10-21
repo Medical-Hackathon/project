@@ -3,9 +3,7 @@ var bodyParser = require("body-parser");
 var spawn = require('child_process').spawn;
 var path = require("path");
 var app = express();
-var medicalComplications = require("./medical_complications.js")
 
-console.log(medicalComplications)
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -20,14 +18,16 @@ app.get("/", function(req, res)
 
 app.post("/", function(req, res)
 {
-	console.log(req)
+	var conditions = req.body.conditions
+	var otherinfo = req.body.otherData
+	console.log(conditions+otherinfo)
 /*	result = predict(function(result)
 	{
 		res.send(result)
 	})*/
 })
 
-var predict = function(cb)
+var predict = function(conditions, otherinfo, cb)
 {
 	var py = spawn('python', ['compute_input.py']);
 

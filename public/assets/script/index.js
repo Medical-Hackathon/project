@@ -125,11 +125,25 @@ $("#submit").on("click", function(event)
 	var location = $('#location').val();
 	var volume = $('#volume').val();
 
+
+	var otherinfo = []
+	otherinfo.push(age)
+	otherinfo.push(sex)
+	otherinfo.push(race)
+	otherinfo.push(edAd)
+	otherinfo.push(bedSize)
+	otherinfo.push(location)
+	otherinfo.push(volume)
+
+	console.log(otherinfo)
+
 	$('.animationload').show()
+
 	var predictData = 
 	{
-		conditions: currentConditions
-	}
+		conditions: currentConditions,
+		otherData: otherinfo
+	};
 
 	$.ajax(
 	{
