@@ -95,8 +95,8 @@
 					<div class="form-group row">
 						<label class="col-sm-1 col-form-label text-center"><h6>Sex:</h6></label>
 						<div class="col-sm-11">
-						<select class="custom-select col-sm-11">
-							<option selected id="sex">Male</option>
+						<select class="custom-select col-sm-11" id="sex">
+							<option selected>Male</option>
 							<option value="2" class="test">Female</option>
 						</select>
 						</div>
@@ -105,9 +105,13 @@
 					<div class="form-group row">
 						<label for="inputPassword" class="col-sm-1 col-form-label text-center"><h6>Race:</h6></label>
 						<div class="col-sm-11">
-						<select class="custom-select col-sm-11">
-							<option selected id="race">Male</option>
-							<option value="2" class="test">Female</option>
+						<select class="custom-select col-sm-11" id="race">
+							<option selected value = "1">White</option>
+							<option value = "2">Black</option>
+							<option value = "3">Hispanic</option>
+							<option value = "4">Asian or Pacific Islander</option>
+							<option value = "5">Native American</option>
+							<option value = "6">Other</option>
 						</select>
 						</div>
 					</div>
@@ -124,6 +128,7 @@
 					<ul class="list-group" id="PMH">
 					</ul>
 				</div>
+
 
 				<button type="button" class="btn btn-primary pull-right" id="submit">Submit</button>
 			</div>
