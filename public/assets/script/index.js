@@ -5,7 +5,11 @@ for (var key in getData)
 	$('#list-of-conditions').append('<tr><td class="condition condition-'+key+'">'+getData[key]+'</td></tr>')
 }
 
-$('#example').DataTable();
+$('#example').DataTable(
+	{
+/*		"scrollY":        "400px",
+        "scrollCollapse": true,*/
+	});
 
 $(document).on('click', '.condition', function(event)
 {

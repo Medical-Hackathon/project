@@ -9,10 +9,43 @@ import pickle
 #no_complications_training: The training data with no complications.
 #I'm just grabbing the first 500 data points to make sure the program works as we want, we'll take this away when we want to try it out will the whole set.
 sample = 500
-df = pd.read_csv('./data/NIS_2007_2014_converted.csv', nrows = sample)
+df = pd.read_csv('./data/NIS_2008_2014_converted.csv', nrows = sample)
 df = df.sample(frac=1)
 del df["RACE"]
-df = df[df['SEX']!=' ']
+#df = df[df['SEX']!=' ']
+#df = df[df['AGE']!=' ']
+#df.drop(df.columns[[0]], axis=1)
+#del df["PID"]
+del df["LOS"]
+del df["YEAR"]
+del df["SEX"]
+del df["AGE"]
+# del df["46"]
+# del df["47"]
+del df["650"]
+del df["651"]
+del df["652"]
+del df["653"]
+del df["654"]
+del df["655"]
+del df["656"]
+del df["657"]
+del df["658"]
+del df["659"]
+del df["662"]
+del df["670"]
+
+print(df)
+print(df.columns.values)
+
+# for i in range(650,670):
+#     del(df[str(i)])
+
+for i in range(164,197):
+   del(df[str(i)])
+
+for i in range(213,224):
+   del(df[str(i)])
 df = df.reset_index(drop=True)
 
 complications = pd.DataFrame(columns = list(df.columns.values))
