@@ -296,10 +296,10 @@ var PMh = {'CM_AIDS': 'AIDS',
 'CM_WGHTLOSS': 'Weight loss'
 };
 
-{'HCUP_ED': 'ED admission'},
+/*{'HCUP_ED': 'ED admission'},
 {'HOSP_BEDSIZE': 'Hospital bedsize'},
 {'HOSP_LOCTEACH': 'Hospital location and academic status'},
-{'TOTAL_DISC': 'Hospital volume'},
+{'TOTAL_DISC': 'Hospital volume'},*/
 
 var diagnosis = 
 {'@1': 'Tuberculosis',

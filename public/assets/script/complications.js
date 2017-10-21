@@ -266,7 +266,7 @@
 //module.exports = getData;
 
 
-var PMh = {'CM_AIDS': 'AIDS',
+var PMH = {'CM_AIDS': 'AIDS',
 'CM_ALCOHOL': 'Alcohol abuse',
 'CM_ARTH': 'Arthritis',
 'CM_BLDLOSS': 'Chronic blood loss anemia',

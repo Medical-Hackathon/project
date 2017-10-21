@@ -5,7 +5,18 @@ for (var key in diagnosis)
 	$('#list-of-diagnosis').append('<tr><td class="diagnosis diagnosis-'+key+'">'+diagnosis[key]+'</td></tr>')
 }
 
+for (var key in PMH)
+{
+	$('#list-of-PMH').append('<tr><td class="PMH PMH-'+key+'">'+PMH[key]+'</td></tr>')
+}
+
 $('#diagnosis-table').DataTable(
+	{
+		"scrollY":        "300px",
+        "scrollCollapse": true,
+	});
+
+$('#PMH-table').DataTable(
 	{
 		"scrollY":        "300px",
         "scrollCollapse": true,
@@ -52,7 +63,35 @@ $(document).on('click', '.diagnosis', function(event)
 	{
 		currentConditions.push(id)
 		console.log(currentConditions)
-		$('#patient-conditions').append('<li class="list-group-item d-flex justify-content-between align-items-center">'+diagnosis[id]+'<span><button type="button" class="btn btn-danger delete" id="'+id+'">Delete</button></span></li>')
+		$('#diagnosis').append('<div class="hi">'+diagnosis[id]+'<span><button type="button" class="btn btn-danger delete pull-right" id="'+id+'">Delete</button></span></div>')
+	}
+})
+
+$(document).on('click', '.PMH', function(event)
+{
+	var id = $(this).attr("class").slice(8);
+	id = id.substring(0, id.length-10)
+	seen = false;
+
+	for (var i=0; i<currentConditions.length; i++)
+	{
+		if (id === currentConditions[i])
+		{
+			seen = true;
+			break;
+		}
+	}
+
+	if (seen)
+	{
+		alert("You have already selected this condition.");
+	}
+
+	else
+	{
+		currentConditions.push(id)
+		console.log(currentConditions)
+		$('#PMH').append('<div class="hi">'+PMH[id]+'<span><button type="button" class="btn btn-danger delete pull-right" id="'+id+'">Delete</button></span></div>')
 	}
 })
 
@@ -72,10 +111,6 @@ $(document).on("click", ".delete", function(event)
 	}
 
 	console.log(currentConditions)
-
-	$('.conition-'+id).parent().remove();
-
-
 })
 
 
