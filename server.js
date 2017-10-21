@@ -20,7 +20,8 @@ app.post("/", function(req, res)
 {
 	var conditions = req.body.conditions
 	var otherinfo = req.body.otherData
-	console.log(conditions+otherinfo)
+	console.log(conditions)
+	console.log(otherinfo)
 /*	result = predict(function(result)
 	{
 		res.send(result)
