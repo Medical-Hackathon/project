@@ -1,11 +1,11 @@
-var currentConditions = []
+var currentConditions = [0]
 
-for (var key in getData)
+for (var key in diagnosis)
 {
-	$('#list-of-conditions').append('<tr><td class="condition condition-'+key+'">'+getData[key]+'</td></tr>')
+	$('#list-of-diagnosis').append('<tr><td class="diagnosis diagnosis-'+key+'">'+diagnosis[key]+'</td></tr>')
 }
 
-$('#example').DataTable(
+$('#diagnosis-table').DataTable(
 	{
 		"scrollY":        "300px",
         "scrollCollapse": true,
@@ -28,7 +28,7 @@ $(document).on("click", ".card-header", function(event)
 	}
 })
 
-$(document).on('click', '.condition', function(event)
+$(document).on('click', '.diagnosis', function(event)
 {
 	var id = $(this).attr("class").slice(20);
 	id = id.substring(0, id.length-10)
@@ -52,7 +52,7 @@ $(document).on('click', '.condition', function(event)
 	{
 		currentConditions.push(id)
 		console.log(currentConditions)
-		$('#patient-conditions').append('<li class="list-group-item d-flex justify-content-between align-items-center">'+getData[id]+'<span><button type="button" class="btn btn-danger delete" id="'+id+'">Delete</button></span></li>')
+		$('#patient-conditions').append('<li class="list-group-item d-flex justify-content-between align-items-center">'+diagnosis[id]+'<span><button type="button" class="btn btn-danger delete" id="'+id+'">Delete</button></span></li>')
 	}
 })
 
