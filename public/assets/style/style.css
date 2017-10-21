@@ -54,3 +54,8 @@ td:hover
 {
   background-color: #fff3cd;
 }
+
+.card-body
+{
+  display: none;
+}

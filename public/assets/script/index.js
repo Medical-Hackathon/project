@@ -7,9 +7,26 @@ for (var key in getData)
 
 $('#example').DataTable(
 	{
-/*		"scrollY":        "400px",
-        "scrollCollapse": true,*/
+		"scrollY":        "300px",
+        "scrollCollapse": true,
 	});
+
+$(document).on("click", ".card-header", function(event)
+{
+	if (!$(this).hasClass("opened"))
+	{
+		$('.card-body').slideUp();
+		$('#'+$(this).attr("class")[$(this).attr("class").length-1]).slideDown();
+		$('.card-header').removeClass("opened");	
+		$(this).addClass("opened");	
+	}
+
+	else
+	{
+		$(this).removeClass("opened");
+		$('#'+$(this).attr("class")[$(this).attr("class").length-1]).slideUp();
+	}
+})
 
 $(document).on('click', '.condition', function(event)
 {
