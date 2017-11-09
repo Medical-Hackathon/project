@@ -2,4 +2,4 @@
 This app lets doctors input pateitn information such as past medical history,S
 
 ## Demo video of App
-[https://youtu.be/FWMhkfqMGP8](Video)
+[Have a look!](https://youtu.be/FWMhkfqMGP8)
